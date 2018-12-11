@@ -1,11 +1,11 @@
 let DataModel = {
     _dataModel : [],
     generate: function () {
-        this._dataModel = d3.range(50).map((item) => {
+        this._dataModel = d3.range(1050).map((item, index) => {
             return { 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight,
-                r: Math.random () * 100
+                x: index, 
+                y: 40 * Math.sin(index * Math.PI / 180) + 100,
+                r: Math.random () * 20
             }
         })
     },
