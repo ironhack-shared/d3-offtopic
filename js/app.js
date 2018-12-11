@@ -1,5 +1,5 @@
 let App = {
-    colors: ['#ffcc00', '#000'],
+    colors: ['#ffcc00', '#fff'],
     _setFullScreen: function () {
         d3
             .select("#base")
@@ -22,9 +22,17 @@ let App = {
         }
 
     },
+    _enableInteraction: function () {
+        d3
+            .select("#actions")
+            .on("click", (d,i) => {
+                Painter.animate();
+            })
+    },
     init: function () {
         this._setFullScreen()
         this._setBackgroundColor(false)
+        this._enableInteraction()
     }
 }
 

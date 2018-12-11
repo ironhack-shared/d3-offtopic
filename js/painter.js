@@ -18,7 +18,7 @@ let Painter = {
             .enter()
             .append("circle")
             .attr("r", (d) => {
-                return d.r
+                return 1
             })
             .attr("cx", (d) => {
                 return d.x
@@ -26,7 +26,18 @@ let Painter = {
             .attr("cy", (d) => {
                 return d.y
             })
-            .style("fill", d3.rgb(0, 255, 0, 0.1))
-
+            .style("fill", (d, i) => {
+                var colorScale = d3.scaleLinear().domain([0, dataModel.length/2, dataModel.length]).range(["green", "blue", "red"])
+                return colorScale(i)
+            })
+    },
+    animate: function () {
+        d3
+            .selectAll("circle")
+            .transition()
+            .duration(1000)
+            .attr("r", (d) => {
+                return d.r * 1
+            })
     }
 }

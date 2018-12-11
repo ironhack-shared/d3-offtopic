@@ -1,6 +1,7 @@
 let DataModel = {
     _dataModel : [],
     generate: function () {
+        //here we generate 1050 elements that we map out with the correct values for our dataviz
         this._dataModel = d3.range(1050).map((item, index) => {
             return { 
                 x: index, 
