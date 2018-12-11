@@ -24,7 +24,7 @@ let Painter = {
                 return d.x
             })
             .attr("cy", (d) => {
-                return 100
+                return d.y
             })
             .style("fill", (d, i) => {
                 var colorScale = d3.scaleLinear().domain([0, dataModel.length]).range(["#f57c00", "#00769b"])
@@ -42,7 +42,7 @@ let Painter = {
                 .selectAll("circle")
                 .transition()
                 .duration(transitionTime)
-                .attr("cy", (d) => (cLoop % 2) ? d.y : d.y2)
+                .attr("cy", (d) => (cLoop % 2) ? d.y2 : d.y)
                 .attr("r", (d) => 5)
         }, transitionTime + (transitionTime / 2))
     }
