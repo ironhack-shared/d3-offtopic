@@ -27,3 +27,5 @@ let App = {
         this._setBackgroundColor(false)
     }
 }
+
+
