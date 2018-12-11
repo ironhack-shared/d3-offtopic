@@ -24,20 +24,26 @@ let Painter = {
                 return d.x
             })
             .attr("cy", (d) => {
-                return d.y
+                return 100
             })
             .style("fill", (d, i) => {
-                var colorScale = d3.scaleLinear().domain([0, dataModel.length/2, dataModel.length]).range(["green", "blue", "red"])
+                var colorScale = d3.scaleLinear().domain([0, dataModel.length]).range(["#f57c00", "#00769b"])
                 return colorScale(i)
             })
     },
     animate: function () {
-        d3
-            .selectAll("circle")
-            .transition()
-            .duration(1000)
-            .attr("r", (d) => {
-                return d.r * 1
-            })
+        var cLoop = 0;
+        var transitionTime = 2500
+
+        setInterval(() => {
+            cLoop++;
+
+            d3
+                .selectAll("circle")
+                .transition()
+                .duration(transitionTime)
+                .attr("cy", (d) => (cLoop % 2) ? d.y : d.y2)
+                .attr("r", (d) => 5)
+        }, transitionTime + (transitionTime / 2))
     }
 }

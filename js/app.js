@@ -1,5 +1,5 @@
 let App = {
-    colors: ['#ffcc00', '#fff'],
+    colors: ['#ffcc00', '#000'],
     _setFullScreen: function () {
         d3
             .select("#base")
