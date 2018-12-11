@@ -3,13 +3,13 @@ let Painter = {
         let selection = d3
             .select("#base")
 
-        let dataModelSelected = dataModel[10]
-
-        selection
-            .append("circle")
-            .attr("r", dataModelSelected.r)
-            .attr("cx", dataModelSelected.x)
-            .attr("cy", dataModelSelected.y)
-            .style("fill", "red")
+        dataModel.forEach((dataModelSelected) => {
+            selection
+                .append("circle")
+                .attr("r", dataModelSelected.r)
+                .attr("cx", dataModelSelected.x)
+                .attr("cy", dataModelSelected.y)
+                .style("fill", d3.rgb(0, Math.random() * 255, 0, 1))
+        })
     }
 }
