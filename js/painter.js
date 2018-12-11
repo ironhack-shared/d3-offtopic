@@ -35,7 +35,7 @@ let Painter = {
         var cLoop = 0;
         var transitionTime = 2500
 
-        setInterval(() => {
+        function animation() {
             cLoop++;
 
             d3
@@ -43,7 +43,12 @@ let Painter = {
                 .transition()
                 .duration(transitionTime)
                 .attr("cy", (d) => (cLoop % 2) ? d.y2 : d.y)
-                .attr("r", (d) => 5)
+        }
+
+        animation();
+        
+        setInterval(() => {
+            animation()
         }, transitionTime + (transitionTime / 2))
     }
 }
